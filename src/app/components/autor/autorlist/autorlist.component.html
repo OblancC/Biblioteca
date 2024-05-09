@@ -1,0 +1,50 @@
+<div class="container">
+  <h3>LISTAGEM DE Autores</h3>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="alinharDireita">
+        <button [routerLink]="['/admin/autor/new']" class="btn btn-primary">
+          Novo (por rota)
+        </button>
+        <button (click)="new()" class="btn btn-primary">Novo (modal)</button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (autor of lista; track $index) {
+          <tr>
+            <th scope="row">{{ autor.id }}</th>
+            <td>{{ autor.nome }}</td>
+            <td>
+              <div class="alinharDireita">
+                <button (click)="edit(autor)" class="btn btn-primary">
+                  Editar
+                </button>
+                <button class="btn btn-danger">Deletar</button>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalDetalhe>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Cadastro de Autor</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+  </div>
+  <div class="modal-body">
+    <app-autordetails [autor]="autorEdit" (retorno)="retornoDetalhe($event)"></app-autordetails>
+  </div>
+</ng-template>
