@@ -1,17 +1,19 @@
 <div class="container">
-  <h3>Cadastro</h3>
-
+  <br>
   <div class="card">
-    <div class="card-body">
-      <div class="col-lg-4"></div>
+    <div class="card-body centralizar">
 
-      <div class="col-lg-4">
-        Nome:
-        <input type="text" name="nome" class="form-control" [(ngModel)]="autor.nome" />
-        <button class="btn btn-primary" (click)="save()">Salvar</button>
-      </div>
+      <mdb-form-control>
+        <input mdbInput type="text" id="form1" class="form-control" (keyup.enter)="save()" [(ngModel)]="autor.nome" />
+        <label mdbLabel class="form-label" for="form1">Nome do Autor(a)</label>
+      </mdb-form-control>
+      <br>
+      <button (click)="save()" type="button" class="btn btn-primary btn-rounded" mdbRipple>
+        Salvar
+      </button>
 
-      <div class="col-lg-4"></div>
+
     </div>
   </div>
 </div>
+<br>

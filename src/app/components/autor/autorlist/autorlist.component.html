@@ -1,16 +1,22 @@
 <div class="container">
-  <h3>LISTAGEM DE Autores</h3>
-
+  <br>
   <div class="card">
     <div class="card-body">
       <div class="alinharDireita">
-        <button [routerLink]="['/admin/autor/new']" class="btn btn-primary">
-          Novo (por rota)
+        <button (click)="new()" class="btn btn-success btn-rounded" > 
+          Adicionar  [ Modal ] 
+          <i class="fa fa-plus fa-1x"></i>
         </button>
-        <button (click)="new()" class="btn btn-primary">Novo (modal)</button>
+        <button [routerLink]="['/admin/autor/new']" class="btn btn-primary btn-rounded">
+          Adicionar  [ Router ] 
+          <i class="fa fa-plus fa-1x"></i>
+        </button>
       </div>
+      <br>
+      <div class="centralizar"><h3>Lista de Autores</h3></div>
+      <br>
 
-      <table class="table">
+      <table class="table" border="1">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -25,10 +31,22 @@
             <td>{{ autor.nome }}</td>
             <td>
               <div class="alinharDireita">
-                <button (click)="edit(autor)" class="btn btn-primary">
-                  Editar
-                </button>
-                <button class="btn btn-danger">Deletar</button>
+
+                  <button (click)="edit(autor)" class="btn btn-success btn-rounded">
+                    Salvar 
+                    <i class="fa fa-pen fa-1x"></i>
+                  </button>
+
+                  <button [routerLink]="['/admin/autor/edit/'+autor.id]" class="btn btn-primary btn-rounded">
+                    Editar 
+                    <i class="fa fa-pen fa-1x"></i>
+                  </button>
+
+                  <button (click)="deleteById(autor)" class="btn btn-danger btn-rounded">
+                    Deletar 
+                    <i class="fa fa-trash-can fa-1x"></i>
+                  </button>
+
               </div>
             </td>
           </tr>

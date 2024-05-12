@@ -1,1 +1,31 @@
-<p>editoradetails works!</p>
+<div class="container">
+    <br>
+      <div class="card">
+        <div class="card-body centralizar">
+    
+          <mdb-form-control>
+            <input
+              mdbInput
+              type="text"
+              id="form1"
+              class="form-control"
+              (keyup.enter)="save()"
+              [(ngModel)]="editora.nome"
+            />
+            <label mdbLabel class="form-label" for="form1">Nome da Editora</label>
+          </mdb-form-control>
+  <br>
+          <button
+          (click)="save()"
+          type="button"
+          class="btn btn-primary btn-rounded"
+          mdbRipple
+        >
+        Salvar
+        </button>
+  
+  
+        </div>
+      </div>
+    </div>
+    <br>
