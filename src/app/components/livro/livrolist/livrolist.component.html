@@ -3,17 +3,19 @@
   <div class="card">
     <div class="card-body">
       <div class="alinharDireita">
-        <button (click)="new()" class="btn btn-success btn-rounded" > 
-          Adicionar  [ Modal ] 
+        <button (click)="new()" class="btn btn-success btn-rounded">
+          Adicionar [ Modal ]
           <i class="fa fa-plus fa-1x"></i>
         </button>
         <button [routerLink]="['/admin/livros/new']" class="btn btn-primary btn-rounded">
-          Adicionar  [ Router ] 
+          Adicionar [ Router ]
           <i class="fa fa-plus fa-1x"></i>
         </button>
       </div>
       <br>
-      <div class="centralizar"><h3>Lista de Livros</h3></div>
+      <div class="centralizar">
+        <h3>Lista de Livros</h3>
+      </div>
       <br>
 
       <table class="table" border="1">
@@ -27,27 +29,15 @@
         <tbody>
           @for (livro of lista; track $index) {
           <tr>
-            <th scope="row">{{ livro.id }}</th>
+            <td>{{ livro.id }}</td>
             <td>{{ livro.nome }}</td>
-            <td>
-              <div class="alinharDireita">
-
-                  <button (click)="edit(livro)" class="btn btn-success btn-rounded">
-                    Salvar 
-                    <i class="fa fa-pen fa-1x"></i>
-                  </button>
-
-                  <button [routerLink]="['/admin/livros/edit/'+livro.id]" class="btn btn-primary btn-rounded">
-                    Editar 
-                    <i class="fa fa-pen fa-1x"></i>
-                  </button>
-
-                  <button (click)="deleteById(livro)" class="btn btn-danger btn-rounded">
-                    Deletar 
-                    <i class="fa fa-trash-can fa-1x"></i>
-                  </button>
-
-              </div>
+            <td class="direita">
+              <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="edit(livro)">
+                Editar
+              </button>
+              <button type="button" class="btn btn-danger btn-rounded" mdbRipple (click)="deleteById(livro)">
+                Deletar
+              </button>
             </td>
           </tr>
           }
